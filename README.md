@@ -1,35 +1,52 @@
-# Serena Agent - Kotlin Implementation
+# AmxLSP Agent - Kotlin Implementation
 
-This is a Kotlin port of the Serena Agent MCP server, originally written in Python.
+A comprehensive Kotlin-based dual-layer coding agent toolkit that provides intelligent code assistance through Language Server Protocol integration and AI model interactions via Model Context Protocol.
 
 ## Overview
 
-Serena is a dual-layer coding agent toolkit that provides:
+AmxLSP is a powerful coding agent toolkit that combines:
 - Language Server Protocol (LSP) integration for 13+ programming languages
-- Model Context Protocol (MCP) server for AI agent interactions
-- Symbol-aware code editing and navigation
-- Project memory and knowledge persistence
-- Flexible context and mode configurations
+- Model Context Protocol (MCP) server for seamless AI agent interactions
+- Symbol-aware code editing and intelligent navigation
+- Project memory and knowledge persistence system
+- Flexible context and mode configurations for different workflows
+- Modern desktop UI built with Compose Multiplatform
 
 ## Project Structure
 
 ```
-amx-serena-kotlin/
-├── build.gradle.kts          # Gradle build configuration
-├── settings.gradle.kts       # Gradle settings
-├── gradle.properties         # Gradle properties
+amx-mcp-lsp-kt/
+├── build.gradle.kts              # Gradle build configuration
+├── settings.gradle.kts           # Gradle settings
+├── gradle.properties             # Gradle properties
 ├── src/
-│   ├── main/
-│   │   ├── kotlin/
-│   │   │   └── com/aimatrix/
-│   │   │       ├── serena/       # Core Serena implementation
-│   │   │       ├── interprompt/  # Prompt generation system
-│   │   │       └── solidlsp/     # LSP wrapper implementation
-│   │   └── resources/            # Configuration files and templates
-│   └── test/
-│       └── kotlin/               # Test files
+│   ├── commonMain/kotlin/        # Shared Kotlin code
+│   │   └── com/aimatrix/
+│   │       ├── amxlsp/           # Core AmxLSP implementation
+│   │       └── solidlsp/         # LSP wrapper implementation
+│   ├── commonTest/kotlin/        # Shared tests
+│   ├── desktopMain/kotlin/       # Desktop-specific code
+│   │   └── com/aimatrix/amxlsp/
+│   │       ├── cli/              # Command-line interface
+│   │       └── desktop/          # Desktop GUI application
+│   └── desktopTest/kotlin/       # Desktop tests
 └── docs/                         # Documentation
 ```
+
+## Features
+
+### 🚀 Core Capabilities
+- **Multi-Language Support**: Native LSP integration for Python, Java, Kotlin, TypeScript, Rust, Go, C#, and more
+- **AI Integration**: MCP server enables seamless interaction with AI models
+- **Smart Code Navigation**: Symbol-aware editing with intelligent code completion
+- **Project Management**: Comprehensive project configuration and memory systems
+- **Desktop GUI**: Modern Material3 interface for visual project management
+
+### 🛠️ Developer Tools
+- **File Operations**: Advanced file manipulation and editing tools
+- **Symbol Tools**: Code symbol extraction and navigation
+- **Memory System**: Persistent knowledge and context management
+- **Configuration Management**: Flexible context and mode configurations
 
 ## Building the Project
 
@@ -45,83 +62,142 @@ amx-serena-kotlin/
 # Run tests
 ./gradlew test
 
-# Create executable JAR
-./gradlew shadowJar
+# Run the desktop application
+./gradlew run
 
-# Run the CLI
+# Create executable JAR
+./gradlew desktopJar
+
+# Run CLI commands
 ./gradlew run --args="--help"
 ```
 
-## Running Serena
+## Running AmxLSP
 
-### Start MCP Server
+### Desktop Application
 ```bash
-# Start with stdio transport (default)
-java -jar build/libs/serena-agent-all.jar mcp-server
-
-# Start with websocket transport
-java -jar build/libs/serena-agent-all.jar mcp-server --transport websocket --port 3000
+# Launch the desktop GUI
+./gradlew run
 ```
 
-### Project Management
+### MCP Server
+```bash
+# Start with stdio transport (default)
+java -jar build/libs/amxlsp-desktop.jar mcp-server
+
+# Start with websocket transport
+java -jar build/libs/amxlsp-desktop.jar mcp-server --transport websocket --port 3000
+```
+
+### Command Line Interface
 ```bash
 # List projects
-java -jar build/libs/serena-agent-all.jar project list
+java -jar build/libs/amxlsp-desktop.jar project list
 
 # Create a new project
-java -jar build/libs/serena-agent-all.jar project create myproject /path/to/project -l KOTLIN
+java -jar build/libs/amxlsp-desktop.jar project create myproject /path/to/project -l KOTLIN
 
 # Activate a project
-java -jar build/libs/serena-agent-all.jar project activate myproject
+java -jar build/libs/amxlsp-desktop.jar project activate myproject
+
+# Show configuration
+java -jar build/libs/amxlsp-desktop.jar config show
 ```
 
 ## Architecture
 
 ### Core Components
 
-1. **SerenaAgent** - Central orchestrator managing projects, tools, and interactions
-2. **SolidLanguageServer** - Unified LSP wrapper for multiple language servers
-3. **Tool System** - Modular tools for file operations, symbol navigation, and editing
-4. **Configuration System** - Contexts and modes for different workflows
-5. **MCP Server** - Exposes tools to AI agents via Model Context Protocol
+1. **AmxLspAgent** - Central orchestrator managing projects, tools, and AI interactions
+2. **SolidLanguageServer** - Unified LSP wrapper providing multi-language support
+3. **Tool System** - Modular architecture with specialized tools for different operations
+4. **Configuration System** - Flexible contexts and modes for different development workflows
+5. **MCP Server** - Exposes capabilities to AI agents via Model Context Protocol
+6. **Desktop UI** - Compose Multiplatform application for visual project management
 
 ### Language Support
 
-The Kotlin implementation supports the same languages as the Python version:
-- Python, Go, Java, Rust, TypeScript, JavaScript
-- C#, PHP, Ruby, Kotlin, Dart
-- Elixir, Clojure, Terraform
+AmxLSP provides intelligent support for:
+- **JVM Languages**: Java, Kotlin, Scala
+- **Web Technologies**: TypeScript, JavaScript, HTML, CSS
+- **Systems Languages**: Rust, Go, C, C++
+- **Dynamic Languages**: Python, Ruby, PHP
+- **Functional Languages**: Elixir, Clojure
+- **Other**: C#, Dart, Terraform
 
-## Key Differences from Python Version
+### Technology Stack
 
-1. **Type Safety**: Full static typing with Kotlin's type system
-2. **Coroutines**: Async operations use Kotlin coroutines instead of Python asyncio
-3. **GUI Framework**: JavaFX/Swing instead of Tkinter for GUI components
-4. **Dependencies**: Uses Kotlin libraries (Ktor, kotlinx.serialization, etc.)
-5. **Build System**: Gradle instead of Python packaging tools
+- **Kotlin Multiplatform**: Shared code across desktop and potential mobile platforms
+- **Compose Multiplatform**: Modern declarative UI framework
+- **Coroutines**: Efficient async/await operations
+- **Kotlinx Serialization**: Type-safe JSON and configuration handling
+- **Material3**: Modern design system for consistent UI/UX
+- **Gradle**: Build automation and dependency management
+
+## Key Advantages
+
+1. **Type Safety**: Full static typing with Kotlin's advanced type system
+2. **Modern Async**: Coroutines provide efficient non-blocking operations
+3. **Cross-Platform**: Kotlin Multiplatform enables code sharing
+4. **Modern UI**: Compose Multiplatform delivers native performance with modern design
+5. **Robust Testing**: Comprehensive test suite ensuring code quality
+6. **AI-Ready**: Built-in MCP support for seamless AI model integration
 
 ## Development Status
 
-This is a work-in-progress port. The following components have been converted:
-- ✅ Basic project structure and build configuration
-- ✅ Constants and configuration classes
-- ✅ CLI command structure
-- ✅ Tool base classes
-- ✅ Exception handling utilities
-- ⏳ Language server integration
-- ⏳ MCP server implementation
-- ⏳ File and symbol tools
-- ⏳ Memory management system
+✅ **Completed Features**
+- Project structure and build configuration
+- Core agent architecture and configuration system
+- Complete tool system (file, memory, symbol, config tools)
+- Language server integration and protocol handling
+- MCP server implementation with full AI agent support
+- Desktop GUI application with Material3 design
+- CLI interface for project and configuration management
+- Comprehensive test suite
+
+🚀 **Production Ready**
+- Fully functional desktop application
+- Complete CLI toolset
+- MCP server for AI integration
+- Multi-language LSP support
+
+## Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/aimatrix/amx-mcp-lsp-kt.git
+   cd amx-mcp-lsp-kt
+   ```
+
+2. **Build the project**
+   ```bash
+   ./gradlew build
+   ```
+
+3. **Run the desktop application**
+   ```bash
+   ./gradlew run
+   ```
+
+4. **Create your first project**
+   ```bash
+   ./gradlew run --args="project create myproject /path/to/your/code -l KOTLIN"
+   ```
 
 ## Contributing
 
-When adding new components:
-1. Follow Kotlin coding conventions
-2. Maintain the same public API as the Python version where possible
-3. Use coroutines for async operations
-4. Add comprehensive tests for new functionality
-5. Update this README with implementation progress
+We welcome contributions! When adding new features:
+
+1. Follow Kotlin coding conventions and best practices
+2. Use coroutines for all async operations
+3. Add comprehensive tests for new functionality
+4. Update documentation for API changes
+5. Ensure Material3 design consistency in UI components
 
 ## License
 
-MIT License (same as the original Python implementation)
+MIT License - see LICENSE file for details
+
+---
+
+**AmxLSP Agent** - Intelligent coding assistance powered by Kotlin and AI
