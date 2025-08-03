@@ -10,9 +10,12 @@ class Aimatrix < Formula
     # Extract the app from the DMG
     system "hdiutil", "attach", "-nobrowse", cached_download, "-mountpoint", buildpath/"mount"
 
-    # Copy the app to Applications
+    # Copy the app to a temporary location first
     app = buildpath/"mount/AmxLSP.app"
-    prefix.install app
+    cp_r app, buildpath/"AmxLSP.app"
+    
+    # Install from the copy
+    prefix.install buildpath/"AmxLSP.app"
 
     # Create a command-line launcher named 'aimatrix'
     (bin/"aimatrix").write <<~EOS
