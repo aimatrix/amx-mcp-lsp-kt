@@ -118,7 +118,7 @@ class LanguageTest {
         // Test that we can identify languages by file extensions
         val kotlinFiles = listOf("Main.kt", "script.kts", "build.gradle.kts")
         val javaFiles = listOf("Main.java", "Test.java")
-        val pythonFiles = listOf("script.py", "module.pyw")
+        val pythonFiles = listOf("script.py", "module.pyi")
         
         kotlinFiles.forEach { filename ->
             val ext = filename.substringAfterLast(".")

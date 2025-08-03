@@ -229,8 +229,8 @@ class ToolsTest {
         val allTools = ToolRegistry.getAll()
         assertTrue(allTools.isNotEmpty())
         
-        // Test finding tools by name
-        val storeMemoryClass = ToolRegistry.getByName("StoreMemoryTool")
+        // Test finding tools by name (getNameFromClass converts to snake_case)
+        val storeMemoryClass = ToolRegistry.getByName("store_memory")
         assertNotNull(storeMemoryClass)
         assertEquals(StoreMemoryTool::class, storeMemoryClass)
         
@@ -238,9 +238,9 @@ class ToolsTest {
         val tool = ToolRegistry.createTool(StoreMemoryTool::class, agent)
         assertTrue(tool is StoreMemoryTool)
         
-        // Test tool name extraction
+        // Test tool name extraction (converts to snake_case)
         val toolName = Tool.getNameFromClass(StoreMemoryTool::class)
-        assertEquals("StoreMemoryTool", toolName)
+        assertEquals("store_memory", toolName)
         
         // Test tool description extraction
         val description = Tool.getToolDescription(StoreMemoryTool::class)

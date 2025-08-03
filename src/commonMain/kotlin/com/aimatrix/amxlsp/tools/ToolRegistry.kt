@@ -46,10 +46,14 @@ object ToolRegistry {
         // File tools
         registerFileTools()
         
+        // Memory tools
+        registerMemoryTools()
+        
+        // Config tools
+        registerConfigTools()
+        
         // TODO: Register other tool categories
         // registerSymbolTools()
-        // registerMemoryTools()
-        // registerConfigTools()
         // registerWorkflowTools()
         // registerCommandTools()
     }
