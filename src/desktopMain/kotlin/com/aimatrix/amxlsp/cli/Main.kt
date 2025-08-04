@@ -62,7 +62,7 @@ fun openInEditor(path: String) {
 // Main CLI class
 class AmxLspCLI : CliktCommand(
     name = "amxlsp",
-    help = "AmxLSP CLI commands. You can run `<command> --help` for more info on each command."
+    help = "Aimatrix Master Agent CLI commands. You can run `<command> --help` for more info on each command."
 ) {
     override fun run() = Unit
 }
@@ -70,7 +70,7 @@ class AmxLspCLI : CliktCommand(
 // MCP Server command
 class StartMCPServerCommand : CliktCommand(
     name = "mcp-server",
-    help = "Start the AmxLSP MCP server"
+    help = "Start the Aimatrix Master Agent MCP server"
 ) {
     private val project by argument("project", help = "Project name or path").optional()
     private val host by option("--host", help = "Host to bind to").default("localhost")
@@ -84,7 +84,7 @@ class StartMCPServerCommand : CliktCommand(
             System.setProperty("LOG_LEVEL", "DEBUG")
         }
         
-        logger.info { "Starting AmxLSP MCP server on $transport transport" }
+        logger.info { "Starting Aimatrix Master Agent MCP server on $transport transport" }
         
         val factory = if (singleProcess) {
             AmxLspMCPFactorySingleProcess()
@@ -106,7 +106,7 @@ class StartMCPServerCommand : CliktCommand(
 // Project commands
 class ProjectCommand : CliktCommand(
     name = "project",
-    help = "Manage AmxLSP projects"
+    help = "Manage Aimatrix Master Agent projects"
 ) {
     override fun run() = Unit
 }
@@ -230,7 +230,7 @@ class IndexProjectCommand : CliktCommand(
 // Config commands
 class ConfigCommand : CliktCommand(
     name = "config",
-    help = "Manage AmxLSP configuration"
+    help = "Manage Aimatrix Master Agent configuration"
 ) {
     override fun run() = Unit
 }
@@ -241,7 +241,7 @@ class ShowConfigCommand : CliktCommand(
 ) {
     override fun run() {
         val config = AmxLspConfig.load()
-        println("AmxLSP Configuration:")
+        println("Aimatrix Master Agent Configuration:")
         println("  Config file: ${AmxLspPaths.amxlspConfigFile}")
         println("  Active project: ${config.activeProject ?: "none"}")
         println("  Default context: ${config.defaultContext}")

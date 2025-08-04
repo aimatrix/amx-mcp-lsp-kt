@@ -268,7 +268,7 @@ fun ConfigScreen(viewModel: AmxLspViewModel) {
                             SelectionContainer {
                                 Text(
                                     text = buildString {
-                                        appendLine("AmxLSP Home: ~/.amxlsp")
+                                        appendLine("Aimatrix Home: ~/.amxlsp")
                                         appendLine("Config File: ~/.amxlsp/config.yaml")
                                         appendLine("Contexts: ~/.amxlsp/contexts")
                                         appendLine("Modes: ~/.amxlsp/modes")

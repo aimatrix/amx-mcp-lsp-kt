@@ -17,7 +17,7 @@ fun main() = application {
     
     Window(
         onCloseRequest = ::exitApplication,
-        title = "AmxLSP Agent",
+        title = "Aimatrix Master Agent",
         state = windowState
     ) {
         AmxLspTheme {

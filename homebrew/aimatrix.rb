@@ -1,8 +1,8 @@
 class Aimatrix < Formula
-  desc "Advanced Language Server Protocol client for Kotlin"
+  desc "Aimatrix Master Agent - Advanced Language Server Protocol client for Kotlin"
   homepage "https://github.com/aimatrix/amx-mcp-lsp-kt"
-  url "https://github.com/aimatrix/amx-mcp-lsp-kt/releases/download/v1.0.3/AmxLSP-1.0.3.dmg"
-  sha256 "0db133934aba5c5aa23b4eb13c63c49784878c6d80e07738e3ae797c2f377686"
+  url "https://github.com/aimatrix/amx-mcp-lsp-kt/releases/download/v1.0.3/aimatrix-1.0.3.dmg"
+  sha256 "7403c79e0277771a1d8f11d69f9bb64d81bb240fd95f4a85f961ad5be7803541"
 
   depends_on :macos
 
@@ -11,16 +11,16 @@ class Aimatrix < Formula
     system "hdiutil", "attach", "-nobrowse", cached_download, "-mountpoint", buildpath/"mount"
 
     # Copy the app to a temporary location first
-    app = buildpath/"mount/AmxLSP.app"
-    cp_r app, buildpath/"AmxLSP.app"
+    app = buildpath/"mount/aimatrix.app"
+    cp_r app, buildpath/"aimatrix.app"
     
     # Install from the copy
-    prefix.install buildpath/"AmxLSP.app"
+    prefix.install buildpath/"aimatrix.app"
 
     # Create a command-line launcher named 'aimatrix'
     (bin/"aimatrix").write <<~EOS
       #!/bin/bash
-      exec "#{prefix}/AmxLSP.app/Contents/MacOS/AmxLSP" "$@"
+      exec "#{prefix}/aimatrix.app/Contents/MacOS/aimatrix" "$@"
     EOS
     (bin/"aimatrix").chmod 0755
 
@@ -36,13 +36,13 @@ class Aimatrix < Formula
         aimatrix
 
       Or find it in your Applications folder after running:
-        open #{prefix}/AmxLSP.app
+        open #{prefix}/aimatrix.app
     EOS
   end
 
   test do
     # Test that the application can be launched
-    assert_path_exists prefix/"AmxLSP.app"
+    assert_path_exists prefix/"aimatrix.app"
     assert_path_exists bin/"aimatrix"
   end
 end

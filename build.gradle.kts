@@ -118,9 +118,9 @@ compose.desktop {
         
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
-            packageName = "AmxLSP"
+            packageName = "aimatrix"
             packageVersion = "1.0.3"
-            description = "AmxLSP - Advanced Language Server Protocol client"
+            description = "Aimatrix Master Agent - Advanced Language Server Protocol client"
             copyright = "© 2024 AiMatrix. All rights reserved."
             vendor = "AiMatrix"
             
@@ -131,7 +131,7 @@ compose.desktop {
             
             macOS {
                 bundleID = "com.aimatrix.amxlsp"
-                dockName = "AmxLSP"
+                dockName = "Aimatrix"
                 iconFile.set(project.file("src/desktopMain/resources/icon.icns"))
             }
             
@@ -152,7 +152,7 @@ tasks.named<Test>("desktopTest") {
 afterEvaluate {
     tasks.findByName("shadowJar")?.let { shadowTask ->
         shadowTask as com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-        shadowTask.archiveBaseName.set("amxlsp-agent")
+        shadowTask.archiveBaseName.set("aimatrix-agent")
         shadowTask.mergeServiceFiles()
         shadowTask.manifest {
             attributes["Main-Class"] = "com.aimatrix.amxlsp.cli.MainKt"

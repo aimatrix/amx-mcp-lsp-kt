@@ -4,12 +4,12 @@
 
 1. **GitHub Release Created**: v1.0.3
    - URL: https://github.com/aimatrix/amx-mcp-lsp-kt/releases/tag/v1.0.3
-   - Asset: AmxLSP-1.0.3.dmg
+   - Asset: aimatrix-1.0.3.dmg
    - SHA256: e3ee244b26791c2377cf6e2fa8af658ea607ec4c0a928837f2da9e63f0e49b3b
 
 2. **Homebrew Formula Created**: `homebrew/aimatrix.rb`
    - Program name: `aimatrix` (command-line)
-   - App name: AmxLSP.app (GUI)
+   - App name: aimatrix.app (GUI)
    - Formula tested locally
 
 ## Steps to Submit to Homebrew

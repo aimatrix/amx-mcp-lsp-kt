@@ -1,10 +1,10 @@
-# AmxLSP Agent - Kotlin Implementation
+# Aimatrix Master Agent - Kotlin Implementation
 
 A comprehensive Kotlin-based dual-layer coding agent toolkit that provides intelligent code assistance through Language Server Protocol integration and AI model interactions via Model Context Protocol.
 
 ## Overview
 
-AmxLSP is a powerful coding agent toolkit that combines:
+Aimatrix Master Agent is a powerful coding agent toolkit that combines:
 - Language Server Protocol (LSP) integration for 13+ programming languages
 - Model Context Protocol (MCP) server for seamless AI agent interactions
 - Symbol-aware code editing and intelligent navigation
@@ -22,7 +22,7 @@ amx-mcp-lsp-kt/
 ├── src/
 │   ├── commonMain/kotlin/        # Shared Kotlin code
 │   │   └── com/aimatrix/
-│   │       ├── amxlsp/           # Core AmxLSP implementation
+│   │       ├── amxlsp/           # Core implementation
 │   │       └── solidlsp/         # LSP wrapper implementation
 │   ├── commonTest/kotlin/        # Shared tests
 │   ├── desktopMain/kotlin/       # Desktop-specific code

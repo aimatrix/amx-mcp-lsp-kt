@@ -34,7 +34,7 @@ fun AmxLspApp() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("AmxLSP Agent") },
+                title = { Text("Aimatrix Master Agent") },
                 actions = {
                     IconButton(onClick = { /* TODO: Open settings */ }) {
                         Icon(Icons.Default.Settings, contentDescription = "Settings")
