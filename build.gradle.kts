@@ -119,7 +119,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
             packageName = "aimatrix"
-            packageVersion = "1.0.3"
+            packageVersion = "1.0.4"
             description = "Aimatrix Master Agent - Advanced Language Server Protocol client"
             copyright = "© 2024 AiMatrix. All rights reserved."
             vendor = "AiMatrix"
