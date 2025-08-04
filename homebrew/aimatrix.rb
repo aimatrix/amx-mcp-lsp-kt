@@ -2,7 +2,7 @@ class Aimatrix < Formula
   desc "Advanced Language Server Protocol client for Kotlin"
   homepage "https://github.com/aimatrix/amx-mcp-lsp-kt"
   url "https://github.com/aimatrix/amx-mcp-lsp-kt/releases/download/v1.0.3/AmxLSP-1.0.3.dmg"
-  sha256 "e3ee244b26791c2377cf6e2fa8af658ea607ec4c0a928837f2da9e63f0e49b3b"
+  sha256 "0db133934aba5c5aa23b4eb13c63c49784878c6d80e07738e3ae797c2f377686"
 
   depends_on :macos
 

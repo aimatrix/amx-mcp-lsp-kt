@@ -138,6 +138,8 @@ compose.desktop {
             linux {
                 iconFile.set(project.file("src/desktopMain/resources/icon.png"))
             }
+            
+            modules("java.base", "java.desktop", "java.logging", "java.sql", "jdk.unsupported")
         }
     }
 }
