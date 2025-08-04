@@ -1,8 +1,8 @@
 class Aimatrix < Formula
   desc "Aimatrix Master Agent - Advanced Language Server Protocol client for Kotlin"
   homepage "https://github.com/aimatrix/amx-mcp-lsp-kt"
-  url "https://github.com/aimatrix/amx-mcp-lsp-kt/releases/download/v1.0.3/aimatrix-1.0.3.dmg"
-  sha256 "7403c79e0277771a1d8f11d69f9bb64d81bb240fd95f4a85f961ad5be7803541"
+  url "https://github.com/aimatrix/amx-mcp-lsp-kt/releases/download/v1.0.4/aimatrix-1.0.4.dmg"
+  sha256 "0f7aabaf128474c10d683028dfe91ba72aa5bafa0b98795701f60d2a9ea50b73"
 
   depends_on :macos
 
